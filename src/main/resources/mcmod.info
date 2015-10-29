@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ic_nowel",
+  "name": "Santa mod",
+  "description": "Santa mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Dren"],
+  "credits": "The Ironcraft for contributing",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

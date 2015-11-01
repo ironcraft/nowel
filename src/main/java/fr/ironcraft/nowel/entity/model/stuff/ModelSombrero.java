@@ -1,7 +1,5 @@
 package fr.ironcraft.nowel.entity.model.stuff;
 
-import org.lwjgl.opengl.GL11;
-
 import fr.ironcraft.nowel.Nowel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -146,14 +144,14 @@ public class ModelSombrero extends ModelBase
 		base.rotateAngleX = angleX;
 		base.rotateAngleY = angleY;
 
-		this.copyModelAngles(base, bord1);
-		this.copyModelAngles(base, bord2);
-		this.copyModelAngles(base, bord3);
-		this.copyModelAngles(base, bord4);
-		this.copyModelAngles(base, h1);
-		this.copyModelAngles(base, h2);
-		this.copyModelAngles(base, h3);
-		this.copyModelAngles(base, h4);
+		copyModelAngles(base, bord1);
+		copyModelAngles(base, bord2);
+		copyModelAngles(base, bord3);
+		copyModelAngles(base, bord4);
+		copyModelAngles(base, h1);
+		copyModelAngles(base, h2);
+		copyModelAngles(base, h3);
+		copyModelAngles(base, h4);
 	}
 	
 	public void render(float angleX, float angleY, float par2)
@@ -203,15 +201,15 @@ public class ModelSombrero extends ModelBase
 
 	public void setRotationAngles(ModelRenderer head)
 	{
-		this.copyModelAngles(head, base);
+		copyModelAngles(head, base);
 
-		this.copyModelAngles(head, bord1);
-		this.copyModelAngles(head, bord2);
-		this.copyModelAngles(head, bord3);
-		this.copyModelAngles(head, bord4);
-		this.copyModelAngles(head, h1);
-		this.copyModelAngles(head, h2);
-		this.copyModelAngles(head, h3);
-		this.copyModelAngles(head, h4);
+		copyModelAngles(head, bord1);
+		copyModelAngles(head, bord2);
+		copyModelAngles(head, bord3);
+		copyModelAngles(head, bord4);
+		copyModelAngles(head, h1);
+		copyModelAngles(head, h2);
+		copyModelAngles(head, h3);
+		copyModelAngles(head, h4);
 	}
 }

@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "ic_nowel:blocks/present_bottom",
+        "top": "ic_nowel:blocks/present_top",
+        "side": "ic_nowel:blocks/present_side"
+    }
+}

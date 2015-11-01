@@ -3,7 +3,6 @@ package fr.ironcraft.nowel.events;
 import org.lwjgl.opengl.GL11;
 
 import fr.ironcraft.nowel.entity.model.stuff.ModelSombrero;
-import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

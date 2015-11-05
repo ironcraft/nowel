@@ -29,11 +29,12 @@ public class CustomWorldGenerator implements IWorldGenerator {
 	public void generateNormal(World world, Random random, int chunkX, int chunkZ)
 	{
 		BiomeGenBase b = world.getBiomeGenForCoords(new BlockPos(chunkX, 0, chunkZ));
-        if(b.biomeID == 12) //Tundra
-        {
-        	for (int i = 0; i < 7; i++) // Attempt to place 7 fir per chunk
-        		FirGen.generate(world, random, new BlockPos(chunkX + random.nextInt(16), 50 + random.nextInt(78), chunkZ + random.nextInt(16)));
-        }
+		if(b.biomeID == 12) //Tundra
+		{
+			for (int i = 0; i < 7; i++) { // Attempt to place 7 fir per chunk
+				FirGen.generate(world, random, new BlockPos(chunkX + random.nextInt(16), 50 + random.nextInt(78), chunkZ + random.nextInt(16)));
+			}
+		}
 	}
 	
 	public void generateNether(World world, Random random, int chunkX, int chunkZ) {

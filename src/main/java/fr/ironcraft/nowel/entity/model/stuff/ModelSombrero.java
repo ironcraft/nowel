@@ -10,9 +10,6 @@ import net.minecraft.util.ResourceLocation;
 public class ModelSombrero extends ModelBase
 {
 
-	//public List<ModelRenderer> renderers;
-	
-	
 	public ModelRenderer base;
 	public ModelRenderer bord1;
 	public ModelRenderer bord2;
@@ -23,7 +20,6 @@ public class ModelSombrero extends ModelBase
 	public ModelRenderer h3;
 	public ModelRenderer h4;
 
-	Minecraft mc = Minecraft.getMinecraft();
 	ResourceLocation texture;
 	
 	public ModelSombrero()
@@ -32,28 +28,17 @@ public class ModelSombrero extends ModelBase
 		textureHeight = 64;
 
 		texture = new ResourceLocation(Nowel.MODID, "textures/entity/hat/sombrero.png");
-		
-		base = createModelRenderer(92, 0, -12F, 0F, -12F, 24, 1, 24);
-		bord1 = createModelRenderer(115, 26, -12F, 1F, 11F, 24, 1, 1);
-		bord2 = createModelRenderer(145, 29, 11F, 1F, -12F, 1, 1, 24);
-		bord3 = createModelRenderer(115, 26, -12F, 1F, -12F, 24, 1, 1);
-		bord4 = createModelRenderer(145, 29, -12F, 1F, -12F, 1, 1, 24);
-		h1 = createModelRenderer(0, 34, -6F, 1F, -6F, 12, 4, 12);
-		h2 = createModelRenderer(48, 38, -5F, 5F, -5F, 10, 2, 10);
-		h3 = createModelRenderer(88, 40, -4F, 7F, -4F, 8, 2, 8);
-		h4 = createModelRenderer(120, 41, -3F, 9F, -3F, 6, 3, 6);
-		
-		/*
-		renderers.add(createModelRenderer(92, 0, -12F, 0F, -12F, 24, 1, 24));
-		renderers.add(createModelRenderer(115, 26, -12F, 1F, 11F, 24, 1, 1));
-		renderers.add(createModelRenderer(145, 29, 11F, 1F, -12F, 1, 1, 24));
-		renderers.add(createModelRenderer(115, 26, -12F, 1F, -12F, 24, 1, 1));
-		renderers.add(createModelRenderer(145, 29, -12F, 1F, -12F, 1, 1, 24));
-		renderers.add(createModelRenderer(0, 34, -6F, 4F, -6F, 12, 4, 12));
-		renderers.add(createModelRenderer(48, 38, -5F, 5F, -5F, 10, 2, 10));
-		renderers.add(createModelRenderer(88, 40, -4F, 8F, -4F, 8, 2, 8));
-		renderers.add(createModelRenderer(120, 41, -3F, 11F, -3F, 6, 3, 6));
-		*/
+
+		base = createModelRenderer(92, 0, -12F, -2F, -12F, 24, 1, 24);
+		bord1 = createModelRenderer(115, 26, -12F, -3F, 11F, 24, 1, 1);
+		bord2 = createModelRenderer(145, 29, 11F, -3F, -12F, 1, 1, 24);
+		bord3 = createModelRenderer(115, 26, -12F, -3F, -12F, 24, 1, 1);
+		bord4 = createModelRenderer(145, 29, -12F, -3F, -12F, 1, 1, 24);
+		h1 = createModelRenderer(0, 34, -6F, -6F, -6F, 12, 4, 12);
+		h2 = createModelRenderer(48, 38, -5F, -8F, -5F, 10, 2, 10);
+		h3 = createModelRenderer(88, 40, -4F, -10F, -4F, 8, 2, 8);
+		h4 = createModelRenderer(120, 41, -3F, -13F, -3F, 6, 3, 6);
+
 	}
 
 	private ModelRenderer createModelRenderer(int offsetX, int offsetY, float posX, float posY, float posZ, int sizeX, int sizeY, int sizeZ) {
@@ -64,80 +49,6 @@ public class ModelSombrero extends ModelBase
 		part.setTextureSize(textureWidth, textureHeight);
 		return (part);
 	}
-	
-	/*
-
-	public ModelSombrero()
-	{
-		this(0.0F);
-	}
-
-	public ModelSombrero(float par1)
-	{
-		this(par1, 0.0F);
-	}
-
-	public ModelSombrero(float par1, float par2)
-	{
-		textureWidth = 256;
-		textureHeight = 64;
-
-		base = createModelRenderer(par2, 92, 0, -12F, -7F, -12F, 24, 1, 24);
-		bord1 = createModelRenderer(par2, 115, 26, -12F, -8F, 11F, 24, 1, 1);
-		bord2 = createModelRenderer(par2, 145, 29, 11F, -8F, -12F, 1, 1, 24);
-		bord3 = createModelRenderer(par2, 115, 26, -12F, -8F, -12F, 24, 1, 1);
-		bord4 = createModelRenderer(par2, 145, 29, -12F, -8F, -12F, 1, 1, 24);
-		h1 = createModelRenderer(par2, 0, 34, -6F, -11F, -6F, 12, 4, 12);
-		h2 = createModelRenderer(par2, 48, 38, -5F, -13F, -5F, 10, 2, 10);
-		h3 = createModelRenderer(par2, 88, 40, -4F, -15F, -4F, 8, 2, 8);
-		h4 = createModelRenderer(par2, 120, 41, -3F, -18F, -3F, 6, 3, 6);
-
-		/*base = new ModelRenderer(this, 92, 0);
-		base.addBox(-12F, -7F, -12F, 24, 1, 24);
-		base.setRotationPoint(0.0F, 0.0F + par2 - f, 0.0F);
-		base.setTextureSize(256, 64);
-		bord1 = new ModelRenderer(this, 115, 26);
-		bord1.addBox(-12F, -8F, 11F, 24, 1, 1);
-		bord1.setRotationPoint(0.0F, 0.0F + par2 - f, 0.0F);
-		bord1.setTextureSize(256, 64);
-		bord2 = new ModelRenderer(this, 145, 29);
-		bord2.addBox(11F, -8F, -12F, 1, 1, 24);
-		bord2.setRotationPoint(0.0F, 0.0F + par2 - f, 0.0F);
-		bord2.setTextureSize(256, 64);
-		bord3 = new ModelRenderer(this, 115, 26);
-		bord3.addBox(-12F, -8F, -12F, 24, 1, 1);
-		bord3.setRotationPoint(0.0F, 0.0F + par2 - f, 0.0F);
-		bord3.setTextureSize(256, 64);
-		bord4 = new ModelRenderer(this, 145, 29);
-		bord4.addBox(-12F, -8F, -12F, 1, 1, 24);
-		bord4.setRotationPoint(0.0F, 0.0F + par2 - f, 0.0F);
-		bord4.setTextureSize(256, 64);
-		h1 = new ModelRenderer(this, 0, 34);
-		h1.addBox(-6F, -11F, -6F, 12, 4, 12);
-		h1.setRotationPoint(0.0F, 0.0F + par2 - f, 0.0F);
-		h2 = new ModelRenderer(this, 48, 38);
-		h2.addBox(-5F, -13F, -5F, 10, 2, 10);
-		h2.setRotationPoint(0.0F, 0.0F + par2 - f, 0.0F);
-		h3 = new ModelRenderer(this, 88, 40);
-		h3.addBox(-4F, -15F, -4F, 8, 2, 8);
-		h3.setRotationPoint(0.0F, 0.0F + par2 - f, 0.0F);
-		h4 = new ModelRenderer(this, 120, 41);
-		h4.addBox(-3F, -18F, -3F, 6, 3, 6);
-		h4.setRotationPoint(0F, 0.0F + par2 - f, 0F);
-		/
-	}
-	 */
-
-	/*public void render(float par1, float par2, float par3)
-	{
-		GL11.glPushMatrix();
-		GL11.glScalef(1f, 1f, 1f);
-		GL11.glRotatef(par2, 0f, 1f, 0f);
-		GL11.glRotatef(par3, 1f, 0f, 0f);
-		render(par1);
-		GL11.glPopMatrix();
-	}*/
-
 	
 	public void setRotationAngles(float angleX, float angleY)
 	{
@@ -157,11 +68,7 @@ public class ModelSombrero extends ModelBase
 	public void render(float angleX, float angleY, float par2)
 	{
 		setRotationAngles(angleX, angleY);
-		mc.renderEngine.bindTexture(texture);
-		
-		//GL11.glPushMatrix();
-		//GL11.glTranslatef(0F, 1.7F, 0F);
-		//GL11.glRotatef(180F, 1, 0, 0);
+		Minecraft.getMinecraft().renderEngine.bindTexture(texture);
 
 		base.render(par2);
 		bord1.render(par2);
@@ -172,44 +79,6 @@ public class ModelSombrero extends ModelBase
 		h2.render(par2);
 		h3.render(par2);
 		h4.render(par2);
-		
-		//GL11.glPopMatrix();
-	}
-	
-	public void render(ModelPlayer p, float par2)
-	{
-		setModelAttributes(p);
-		setRotationAngles(p.bipedHead);
-		mc.renderEngine.bindTexture(texture);
-		
-		//GL11.glPushMatrix();
-		//GL11.glTranslatef(0F, 1.7F, 0F);
-		//GL11.glRotatef(180F, 1, 0, 0);
-
-		base.render(par2);
-		bord1.render(par2);
-		bord2.render(par2);
-		bord3.render(par2);
-		bord4.render(par2);
-		h1.render(par2);
-		h2.render(par2);
-		h3.render(par2);
-		h4.render(par2);
-		
-		//GL11.glPopMatrix();
 	}
 
-	public void setRotationAngles(ModelRenderer head)
-	{
-		copyModelAngles(head, base);
-
-		copyModelAngles(head, bord1);
-		copyModelAngles(head, bord2);
-		copyModelAngles(head, bord3);
-		copyModelAngles(head, bord4);
-		copyModelAngles(head, h1);
-		copyModelAngles(head, h2);
-		copyModelAngles(head, h3);
-		copyModelAngles(head, h4);
-	}
 }

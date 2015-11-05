@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import fr.ironcraft.nowel.blocks.BlockPresent;
 import fr.ironcraft.nowel.blocks.TileEntityPresent;
 import fr.ironcraft.nowel.proxy.CommonProxy;
+import fr.ironcraft.nowel.worldgen.CustomWorldGenerator;
 
 @Mod(modid = Nowel.MODID, version = Nowel.VERSION)
 public class Nowel
@@ -39,6 +40,9 @@ public class Nowel
 		present = (BlockPresent) (new BlockPresent().setUnlocalizedName("present"));
 		GameRegistry.registerBlock(present, "present");
         GameRegistry.registerTileEntity(TileEntityPresent.class, MODID + ":present_tileentity");
+        
+        GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 0);
+        
 		proxy.init();
 		
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandlerPresent());

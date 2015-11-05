@@ -27,6 +27,7 @@ gradle-app.setting
 
 
 ### Eclipse ###
+eclipse/
 *.pydevproject
 .metadata
 .gradle
@@ -42,6 +43,7 @@ local.properties
 
 # Eclipse Core
 .project
+.project/
 
 # External tool builders
 .externalToolBuilders/

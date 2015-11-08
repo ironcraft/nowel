@@ -18,8 +18,8 @@ buildscript {
 apply plugin: 'forge'
 
 version = "1.0"
-group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+group= "fr.ironcraft.nowel" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "ic_nowel"
 
 minecraft {
     version = "1.8-11.14.3.1450"

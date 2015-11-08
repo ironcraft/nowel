@@ -1,5 +1,7 @@
 package fr.ironcraft.nowel;
 
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemSword;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -29,6 +31,9 @@ public class Nowel
 	
 	public static BlockPresent present;
 
+    public static Item iceSword;
+    public static Item candyCaneSword;
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
@@ -42,7 +47,12 @@ public class Nowel
         GameRegistry.registerTileEntity(TileEntityPresent.class, MODID + ":present_tileentity");
         
         GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 0);
-        
+
+        iceSword = (new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("iceSword")); //Missing Texture
+        GameRegistry.registerItem(iceSword, "iceSword");
+        candyCaneSword = (new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("candyCaneSword")); //Missing Texture
+        GameRegistry.registerItem(candyCaneSword, "candyCaneSword");
+
 		proxy.init();
 		
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandlerPresent());

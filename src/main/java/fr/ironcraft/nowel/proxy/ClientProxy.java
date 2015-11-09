@@ -22,6 +22,10 @@ public class ClientProxy extends CommonProxy
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPresent.class, new TileEntityPresentRenderer());
 		renderRegisterObject(Nowel.present, 0, "present");
+
+		renderRegisterObject(Nowel.candyCaneSword, 0, "candyCaneSword");
+		renderRegisterObject(Nowel.candyCane, 0, "candyCane");
+		renderRegisterObject(Nowel.iceSword, 0, "iceSword");
 	}
 
 	public void renderRegisterObject(Item item, int metadata, String name)

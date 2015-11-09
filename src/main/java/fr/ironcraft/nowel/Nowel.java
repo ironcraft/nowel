@@ -1,6 +1,11 @@
 package fr.ironcraft.nowel;
 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -31,6 +36,7 @@ public class Nowel
 	
 	public static BlockPresent present;
 
+    public static Item candyCane;
     public static Item iceSword;
     public static Item candyCaneSword;
 
@@ -48,13 +54,24 @@ public class Nowel
         
         GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 0);
 
+        //Items BEGIN
+        candyCane = (new ItemFood(2, 0.1F, false).setUnlocalizedName("candyCane").setFull3D()); //Missing Texture
+        GameRegistry.registerItem(candyCane, "candyCane");
+
         iceSword = (new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("iceSword")); //Missing Texture
         GameRegistry.registerItem(iceSword, "iceSword");
+
         candyCaneSword = (new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("candyCaneSword")); //Missing Texture
         GameRegistry.registerItem(candyCaneSword, "candyCaneSword");
+        //Items END
 
 		proxy.init();
-		
+
+		//Crafts BEGIN
+		GameRegistry.addRecipe(new ItemStack(candyCaneSword), new Object[] {" X ", " X ", " C ", 'X', candyCane, 'C' , Items.stick});
+		GameRegistry.addRecipe(new ItemStack(iceSword), new Object[] {" X ", " X ", " C ", 'X', Blocks.ice, 'C' , Items.stick});
+		//Craft END
+
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandlerPresent());
 	}
 

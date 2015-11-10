@@ -23,7 +23,7 @@ public class CustomItems {
 	private void init()
 	{
         candyCane = (new ItemFood(2, 0.1F, false).setUnlocalizedName("candy-cane").setFull3D());
-        candyCaneSword = (new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("candy-cane_Sword"));
+        candyCaneSword = (new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("candy-cane_sword"));
         iceSword = (new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("ice_sword"));
 
         this.register();

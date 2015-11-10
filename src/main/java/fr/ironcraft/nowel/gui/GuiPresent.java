@@ -1,4 +1,4 @@
-package fr.ironcraft.nowel;
+package fr.ironcraft.nowel.gui;
 
 
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -10,7 +10,9 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
+import fr.ironcraft.nowel.Nowel;
 import fr.ironcraft.nowel.blocks.TileEntityPresent;
+import fr.ironcraft.nowel.container.ContainerPresent;
 
 
 public class GuiPresent extends GuiContainer

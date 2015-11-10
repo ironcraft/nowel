@@ -1,13 +1,14 @@
-package fr.ironcraft.nowel;
+package fr.ironcraft.nowel.gui;
 
+import fr.ironcraft.nowel.blocks.TileEntityPresent;
+import fr.ironcraft.nowel.container.ContainerPresent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
-import fr.ironcraft.nowel.blocks.TileEntityPresent;
 
-public class GuiHandlerPresent implements IGuiHandler
+public class CustomGuiHandler implements IGuiHandler
 {
 
 	@Override
@@ -15,8 +16,7 @@ public class GuiHandlerPresent implements IGuiHandler
 	{
         TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
 		
-        if(tile instanceof TileEntityPresent)
-        {
+        if(tile instanceof TileEntityPresent) {
             return new ContainerPresent((TileEntityPresent)tile, player.inventory, player);
         }
         
@@ -28,8 +28,7 @@ public class GuiHandlerPresent implements IGuiHandler
 	{
         TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
 		
-        if(tile instanceof TileEntityPresent)
-        {
+        if(tile instanceof TileEntityPresent) {
             return new GuiPresent((TileEntityPresent)tile, player.inventory, player);
         }
         

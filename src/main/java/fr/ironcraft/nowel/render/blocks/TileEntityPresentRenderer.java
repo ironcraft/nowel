@@ -19,7 +19,7 @@ public class TileEntityPresentRenderer extends TileEntitySpecialRenderer
 	{
 		GL11.glPushMatrix();
 		GL11.glTranslated(posX, posY, posZ);
-		renderTileEntityPresent((TileEntityPresent) tileEntity, tileEntity.getWorld(), partialTickTime, meta, Nowel.present);
+		renderTileEntityPresent((TileEntityPresent) tileEntity, tileEntity.getWorld(), partialTickTime, meta, Nowel.blocks.present);
 		GL11.glPopMatrix();
 	}
 

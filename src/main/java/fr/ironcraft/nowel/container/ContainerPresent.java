@@ -1,4 +1,4 @@
-package fr.ironcraft.nowel;
+package fr.ironcraft.nowel.container;
 
 
 import net.minecraft.entity.player.EntityPlayer;

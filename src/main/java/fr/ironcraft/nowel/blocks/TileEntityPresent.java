@@ -63,10 +63,12 @@ public class TileEntityPresent extends TileEntity implements IInventory
 	{
 		super.writeToNBT(compound);
 		
-		compound.setLong("GiverIDMost", giverId.getMostSignificantBits());
-		compound.setLong("GiverIDLeast", giverId.getLeastSignificantBits());
-		compound.setLong("GivenIDMost", givenId.getMostSignificantBits());
-		compound.setLong("GivenIDLeast", givenId.getLeastSignificantBits());
+		if (giverId != null) {
+			compound.setLong("GiverIDMost", giverId.getMostSignificantBits());
+			compound.setLong("GiverIDLeast", giverId.getLeastSignificantBits());
+			compound.setLong("GivenIDMost", givenId.getMostSignificantBits());
+			compound.setLong("GivenIDLeast", givenId.getLeastSignificantBits());
+		}
 
         NBTTagList nbttaglist = new NBTTagList();
         for(int i = 0; i < presents.length; i++)

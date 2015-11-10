@@ -1,4 +1,5 @@
-item.candyCane.name=Sucre d'orge
-item.iceSword.name=Épee de Glace
-item.candyCaneSword.name=Épee en sucre d'orge
+item.candy-cane.name=Sucre d'orge
+item.ice_sword.name=Épee de Glace
+item.candy-cane_sword.name=Épee en sucre d'orge
 tile.present.name=Cadeau
+item.santa_hat.name=Chapeau du père Noël

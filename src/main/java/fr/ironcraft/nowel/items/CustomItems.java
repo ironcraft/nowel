@@ -14,6 +14,7 @@ public class CustomItems {
 	public static Item candyCane;
     public static Item iceSword;
     public static Item candyCaneSword;
+	public static Item santaHat;
 	
     public CustomItems()
     {
@@ -23,8 +24,9 @@ public class CustomItems {
 	private void init()
 	{
         candyCane = (new ItemFood(2, 0.1F, false).setUnlocalizedName("candy-cane").setFull3D());
-        candyCaneSword = (new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("candy-cane_Sword"));
+        candyCaneSword = (new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("candy-cane_sword"));
         iceSword = (new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("ice_sword"));
+		santaHat = new SantaHat();
 
         this.register();
 	}
@@ -34,6 +36,7 @@ public class CustomItems {
 		this.registerItem(candyCane, "candyCane");
 		this.registerItem(candyCaneSword, "candyCaneSword");
 		this.registerItem(iceSword, "iceSword");
+		this.registerItem(santaHat, "santaHat");
 	}
 	
 	private void registerItem(Item item, String name)

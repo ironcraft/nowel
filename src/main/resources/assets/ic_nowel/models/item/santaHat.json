@@ -1,0 +1,6 @@
+{
+  "parent": "item/santa_hat",
+  "textures": {
+    "layer0": "ic_nowel:items/santa_hat"
+  }
+}

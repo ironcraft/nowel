@@ -4,6 +4,7 @@ import fr.ironcraft.nowel.blocks.CustomBlocks;
 import fr.ironcraft.nowel.items.CustomItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -21,6 +22,7 @@ public class CustomCrafting {
 		
 		GameRegistry.addRecipe(new ItemStack(items.candyCaneSword), new Object[] {" X ", " X ", " C ", 'X', items.candyCane, 'C' , Items.stick});
 		GameRegistry.addRecipe(new ItemStack(items.iceSword), new Object[] {" X ", " X ", " C ", 'X', Blocks.ice, 'C' , Items.stick});
+		GameRegistry.addRecipe(new ItemStack(items.santaHat), new Object[] {" A ", " B ", "CDC", 'A', Items.string, 'B', new ItemStack(Blocks.wool, 1, 14), 'C', Items.redstone, 'D', Blocks.wool});
 	}
 	
 }

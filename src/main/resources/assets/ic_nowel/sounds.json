@@ -1,0 +1,11 @@
+{
+    "records.nowel": {
+        "category": "record",
+        "sounds": [
+            {
+                "name": "disc/record_nowel",
+                "stream": true
+            }
+        ]
+    }
+}

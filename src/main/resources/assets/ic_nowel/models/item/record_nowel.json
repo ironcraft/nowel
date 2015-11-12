@@ -1,0 +1,6 @@
+{
+    "parent": "record_blocks",
+    "textures": {
+        "layer0": "ic_nowel:items/record_nowel"
+    }
+}

@@ -5,6 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemRecord;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -12,9 +13,10 @@ import net.minecraftforge.fml.relauncher.Side;
 public class CustomItems {
 
 	public static Item candyCane;
-    public static Item iceSword;
     public static Item candyCaneSword;
-	public static Item santaHat;
+    public static Item iceSword;
+    public static Item record_nowel;
+    public static Item santaHat;
 	
     public CustomItems()
     {
@@ -23,10 +25,11 @@ public class CustomItems {
     
 	private void init()
 	{
-        candyCane = (new ItemFood(2, 0.1F, false).setUnlocalizedName("candy-cane").setFull3D());
-        candyCaneSword = (new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("candy-cane_sword"));
-        iceSword = (new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("ice_sword"));
-		santaHat = new SantaHat();
+        candyCane = new ItemFood(2, 0.1F, false).setUnlocalizedName("candy-cane").setFull3D();
+        candyCaneSword = new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("candy-cane_sword");
+        iceSword = new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("ice_sword");
+		record_nowel = new ItemCustomRecord("nowel").setUnlocalizedName("record.nowel");
+        santaHat = new SantaHat();
 
         this.register();
 	}
@@ -36,6 +39,7 @@ public class CustomItems {
 		this.registerItem(candyCane, "candyCane");
 		this.registerItem(candyCaneSword, "candyCaneSword");
 		this.registerItem(iceSword, "iceSword");
+		this.registerItem(record_nowel, "record_nowel");
 		this.registerItem(santaHat, "santaHat");
 	}
 	

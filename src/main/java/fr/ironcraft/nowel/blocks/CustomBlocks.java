@@ -3,13 +3,15 @@ package fr.ironcraft.nowel.blocks;
 import fr.ironcraft.nowel.Nowel;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class CustomBlocks {
 
 	public static Block present;
-	
+	public static Block garland;
+
 	public CustomBlocks()
 	{
 		this.init();
@@ -18,13 +20,15 @@ public class CustomBlocks {
 	private void init()
 	{
 		present = new BlockPresent().setUnlocalizedName("present").setCreativeTab(Nowel.TAB_NOWEL);
-		
+		garland = new DecoBlock().setUnlocalizedName("garland").setCreativeTab(Nowel.TAB_NOWEL);
+
 		this.register();
 	}
 	
 	private void register()
 	{
-		this.registerTileEntityBlock(present, "present");
+		this.registerTileEntityBlock(present, "present", TileEntityPresent.class);
+		this.registerBlock(garland, "garland");
 	}
 	
 	private void registerBlock(Block block, String name)
@@ -34,9 +38,9 @@ public class CustomBlocks {
         	Nowel.items.registerItemRender(Item.getItemFromBlock(block), 0, name);
 	}
 	
-	private void registerTileEntityBlock(Block block, String name)
+	private void registerTileEntityBlock(Block block, String name, Class<? extends TileEntity> tile)
 	{
-		registerBlock(block, name);
-		GameRegistry.registerTileEntity(TileEntityPresent.class, Nowel.MODID + ":"+name+"_tileentity");
+		this.registerBlock(block, name);
+		GameRegistry.registerTileEntity(tile, Nowel.MODID + ":" + name + "_tileentity");
 	}
 }

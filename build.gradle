@@ -68,3 +68,8 @@ processResources
         exclude 'mcmod.info'
     }
 }
+
+// Shark: Added this for IntelliJ
+sourceSets {
+    main { output.resourcesDir = output.classesDir }
+}

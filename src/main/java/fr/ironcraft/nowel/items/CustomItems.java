@@ -25,10 +25,10 @@ public class CustomItems {
     
 	private void init()
 	{
-        candyCane = new ItemFood(2, 0.1F, false).setUnlocalizedName("candy-cane").setFull3D();
-        candyCaneSword = new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("candy-cane_sword");
-        iceSword = new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("ice_sword");
-		record_nowel = new ItemCustomRecord("nowel").setUnlocalizedName("record.nowel");
+        candyCane = new ItemFood(2, 0.1F, false).setUnlocalizedName("candy-cane").setFull3D().setCreativeTab(Nowel.TAB_NOWEL);
+        candyCaneSword = new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("candy-cane_sword").setCreativeTab(Nowel.TAB_NOWEL);
+        iceSword = new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("ice_sword").setCreativeTab(Nowel.TAB_NOWEL);
+		record_nowel = new ItemCustomRecord("nowel").setUnlocalizedName("record.nowel").setCreativeTab(Nowel.TAB_NOWEL);
         santaHat = new SantaHat();
 
         this.register();

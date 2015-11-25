@@ -17,7 +17,7 @@ public class CustomBlocks {
 	
 	private void init()
 	{
-		present = new BlockPresent().setUnlocalizedName("present");
+		present = new BlockPresent().setUnlocalizedName("present").setCreativeTab(Nowel.TAB_NOWEL);
 		
 		this.register();
 	}

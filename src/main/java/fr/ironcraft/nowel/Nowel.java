@@ -5,6 +5,10 @@ import fr.ironcraft.nowel.gui.CustomGuiHandler;
 import fr.ironcraft.nowel.items.CustomItems;
 import fr.ironcraft.nowel.proxy.CommonProxy;
 import fr.ironcraft.nowel.worldgen.CustomWorldGenerator;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -12,6 +16,9 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.LanguageRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid = Nowel.MODID, version = Nowel.VERSION)
 public class Nowel
@@ -28,6 +35,20 @@ public class Nowel
 	
 	public static CustomItems items;
 	public static CustomBlocks blocks;
+
+	public static final CreativeTabs TAB_NOWEL = new CreativeTabs("nowel")
+	{
+		@SideOnly(Side.CLIENT)
+		public Item getTabIconItem()
+		{
+			return CustomItems.santaHat;
+		}
+
+		public String getTranslatedTabLabel()
+		{
+			return I18n.format("tab.nowel.name");
+		}
+	};
 
 	@EventHandler
 	public void init(FMLInitializationEvent event)

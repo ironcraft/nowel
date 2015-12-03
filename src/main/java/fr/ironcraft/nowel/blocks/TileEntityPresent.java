@@ -4,6 +4,9 @@ package fr.ironcraft.nowel.blocks;
 import java.util.Arrays;
 import java.util.UUID;
 
+import com.sun.istack.internal.NotNull;
+
+import fr.ironcraft.nowel.Nowel;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -19,10 +22,6 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
 import net.minecraftforge.common.util.Constants;
-
-import com.sun.istack.internal.NotNull;
-
-import fr.ironcraft.nowel.Nowel;
 
 
 public class TileEntityPresent extends TileEntity implements IInventory
@@ -84,14 +83,16 @@ public class TileEntityPresent extends TileEntity implements IInventory
         compound.setTag("Presents", nbttaglist);
 	}
 
-	public Packet getDescriptionPacket()
+	@Override
+    public Packet getDescriptionPacket()
 	{
 		NBTTagCompound nbttagcompound = new NBTTagCompound();
 		this.writeToNBT(nbttagcompound);
 		return new S35PacketUpdateTileEntity(pos, getBlockMetadata(), nbttagcompound);
 	}
 
-	public void onDataPacket(NetworkManager networkManager, S35PacketUpdateTileEntity packet)
+	@Override
+    public void onDataPacket(NetworkManager networkManager, S35PacketUpdateTileEntity packet)
 	{
 		this.readFromNBT(packet.getNbtCompound());
 	}
@@ -120,7 +121,7 @@ public class TileEntityPresent extends TileEntity implements IInventory
 	}
 
 	@Override
-	public String getName()
+    public String getCommandSenderName()
 	{
 		return "Hey";
 	}
@@ -134,7 +135,7 @@ public class TileEntityPresent extends TileEntity implements IInventory
 	@Override
 	public IChatComponent getDisplayName()
 	{
-		return new ChatComponentText(getName());
+        return new ChatComponentText(getCommandSenderName());
 	}
 
 	@Override

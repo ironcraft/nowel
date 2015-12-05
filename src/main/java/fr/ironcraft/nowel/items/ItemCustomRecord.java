@@ -1,8 +1,8 @@
 package fr.ironcraft.nowel.items;
 
-import fr.ironcraft.nowel.Nowel;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.util.ResourceLocation;
+import fr.ironcraft.nowel.Nowel;
 
 public class ItemCustomRecord extends ItemRecord {
 

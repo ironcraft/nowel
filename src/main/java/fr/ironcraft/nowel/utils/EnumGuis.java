@@ -1,9 +1,9 @@
 package fr.ironcraft.nowel.utils;
 
-import fr.ironcraft.nowel.Nowel;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import fr.ironcraft.nowel.Nowel;
 
 public enum EnumGuis
 {

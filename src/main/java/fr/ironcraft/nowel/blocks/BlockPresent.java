@@ -10,6 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import fr.ironcraft.nowel.blocks.tileentities.TileEntityPresent;
 
 
 public class BlockPresent extends BlockContainer

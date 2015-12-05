@@ -1,11 +1,10 @@
 package fr.ironcraft.nowel.entity.model.stuff;
 
-import fr.ironcraft.nowel.Nowel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.util.ResourceLocation;
+import fr.ironcraft.nowel.Nowel;
 
 public class ModelSombrero extends ModelBase
 {

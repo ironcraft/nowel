@@ -1,14 +1,13 @@
 package fr.ironcraft.nowel.items;
 
-import fr.ironcraft.nowel.Nowel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemRecord;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
+import fr.ironcraft.nowel.Nowel;
 
 public class CustomItems {
 

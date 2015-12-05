@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import fr.ironcraft.nowel.Nowel;
-import fr.ironcraft.nowel.blocks.TileEntityPresent;
+import fr.ironcraft.nowel.blocks.tileentities.TileEntityPresent;
 
 
 public class TileEntityPresentRenderer extends TileEntitySpecialRenderer

@@ -1,9 +1,9 @@
 package fr.ironcraft.nowel.items;
 
-import fr.ironcraft.nowel.utils.EnumGuis;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import fr.ironcraft.nowel.utils.EnumGuis;
 
 public class ItemPresentEmpty extends ItemPresent
 {

@@ -1,16 +1,11 @@
 package fr.ironcraft.nowel.proxy;
 
 
-import fr.ironcraft.nowel.Nowel;
-import fr.ironcraft.nowel.blocks.TileEntityPresent;
-import fr.ironcraft.nowel.events.EventHandler;
-import fr.ironcraft.nowel.render.blocks.TileEntityPresentRenderer;
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import fr.ironcraft.nowel.blocks.tileentities.TileEntityPresent;
+import fr.ironcraft.nowel.events.EventHandler;
+import fr.ironcraft.nowel.render.blocks.TileEntityPresentRenderer;
 
 
 public class ClientProxy extends CommonProxy

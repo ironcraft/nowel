@@ -1,11 +1,12 @@
 package fr.ironcraft.nowel.blocks;
 
-import fr.ironcraft.nowel.Nowel;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
+import fr.ironcraft.nowel.Nowel;
+import fr.ironcraft.nowel.blocks.tileentities.TileEntityPresent;
 
 public class CustomBlocks {
 

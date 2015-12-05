@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>nowel</name>
-	<comment/>
-	<projects/>
+	<comment />
+	<projects />
 	<natures>
 		<nature>org.springsource.ide.eclipse.gradle.core.nature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
@@ -10,8 +10,8 @@
 	<buildSpec>
 		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
-			<arguments/>
+			<arguments />
 		</buildCommand>
 	</buildSpec>
-	<linkedResources/>
+	<linkedResources />
 </projectDescription>

@@ -1,14 +1,14 @@
 package fr.ironcraft.nowel.events;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
 import org.lwjgl.opengl.GL11;
 
 import fr.ironcraft.nowel.entity.model.stuff.ModelSantaHat;
 import fr.ironcraft.nowel.items.SantaHat;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.event.RenderPlayerEvent;
-import net.minecraftforge.client.event.sound.PlayStreamingEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EventHandler {
 

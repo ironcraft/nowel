@@ -9,8 +9,8 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class CustomBlocks {
 
-	public static Block present;
-	public static Block garland;
+	public Block present;
+	public Block garland;
 
 	public CustomBlocks()
 	{

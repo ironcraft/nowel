@@ -1,24 +1,24 @@
 package fr.ironcraft.nowel;
 
-import fr.ironcraft.nowel.blocks.CustomBlocks;
-import fr.ironcraft.nowel.gui.CustomGuiHandler;
-import fr.ironcraft.nowel.items.CustomItems;
-import fr.ironcraft.nowel.proxy.CommonProxy;
-import fr.ironcraft.nowel.worldgen.CustomWorldGenerator;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.common.registry.LanguageRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import fr.ironcraft.nowel.blocks.CustomBlocks;
+import fr.ironcraft.nowel.gui.GuiNowelHandler;
+import fr.ironcraft.nowel.items.CustomItems;
+import fr.ironcraft.nowel.proxy.CommonProxy;
+import fr.ironcraft.nowel.worldgen.CustomWorldGenerator;
 
 @Mod(modid = Nowel.MODID, version = Nowel.VERSION)
 public class Nowel
@@ -35,6 +35,8 @@ public class Nowel
 	
 	public static CustomItems items;
 	public static CustomBlocks blocks;
+	
+	public static SimpleNetworkWrapper network;
 
 	public static final CreativeTabs TAB_NOWEL = new CreativeTabs("nowel")
 	{
@@ -49,6 +51,13 @@ public class Nowel
 			return I18n.format("tab.nowel.name");
 		}
 	};
+	
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event)
+	{
+		network = NetworkRegistry.INSTANCE.newSimpleChannel("NowelChannel");
+		network.registerMessage(PresentCreationMessage.Handler.class, PresentCreationMessage.class, 0, Side.SERVER);
+	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event)
@@ -62,7 +71,7 @@ public class Nowel
         
 		proxy.init();
 		
-		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new CustomGuiHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiNowelHandler());
 	}
 
 }

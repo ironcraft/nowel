@@ -41,7 +41,6 @@ public class GuiPresentCreation extends GuiContainer
 		this.ySize = 153;
 	}
 
-	@SuppressWarnings("unchecked")
 	public void initGui()
 	{
 		super.initGui();

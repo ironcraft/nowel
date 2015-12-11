@@ -19,7 +19,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = "1.0"
 group= "fr.ironcraft.nowel"
-archivesBaseName = "[Ironcraft] Nowel Mod"
+archivesBaseName = "IC_NowelMod"
 compileJava.options.encoding = 'UTF-8'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -55,5 +55,8 @@ processResources
 
 // Shark: Added this for IntelliJ
 sourceSets {
-    main { output.resourcesDir = output.classesDir }
+    if (file(".idea/").exists())
+    {
+        main { output.resourcesDir = output.classesDir }
+    }   
 }

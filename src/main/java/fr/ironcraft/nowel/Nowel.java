@@ -43,7 +43,7 @@ public class Nowel
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem()
 		{
-			return CustomItems.santaHat;
+			return items.santaHat;
 		}
 
 		public String getTranslatedTabLabel()

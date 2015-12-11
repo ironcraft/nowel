@@ -1,30 +1,21 @@
 package fr.ironcraft.nowel.render.blocks;
 
 
-import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import fr.ironcraft.nowel.Nowel;
 import fr.ironcraft.nowel.blocks.tileentities.TileEntityPresent;
 
 
-public class TileEntityPresentRenderer extends TileEntitySpecialRenderer
+public class TileEntityPresentRenderer extends TileEntitySpecialRenderer<TileEntityPresent>
 {
+
 	@Override
-	public void renderTileEntityAt(TileEntity tileEntity, double posX, double posY, double posZ, float partialTickTime, int meta)
+	public void renderTileEntityAt(TileEntityPresent te, double x, double y, double z, float partialTicks, int destroyStage)
 	{
 		GL11.glPushMatrix();
-		GL11.glTranslated(posX, posY, posZ);
-		renderTileEntityPresent((TileEntityPresent) tileEntity, tileEntity.getWorld(), partialTickTime, meta, Nowel.blocks.present);
-		GL11.glPopMatrix();
-	}
-
-	private void renderTileEntityPresent(TileEntityPresent tileEntity, World world, float partialTickTime, int meta, Block block)
-	{
-		// None.
+		GL11.glTranslated(x, y, z);
+		GL11.glPopMatrix();		
 	}
 }

@@ -33,7 +33,6 @@ public class ModelSantaHat extends ModelBase
 	}
 
 	private ModelRenderer createModelRenderer(int offsetX, int offsetY, float posX, float posY, float posZ, int sizeX, int sizeY, int sizeZ) {
-		float f = -1F;
 		ModelRenderer part = new ModelRenderer(this, offsetX, offsetY);
 		part.addBox(posX, posY, posZ, sizeX, sizeY, sizeZ);
 		part.setRotationPoint(0F, -22.5F, 0F);
@@ -46,10 +45,10 @@ public class ModelSantaHat extends ModelBase
 		h0.rotateAngleX = angleX;
 		h0.rotateAngleY = angleY;
 
-		this.copyModelAngles(h0, h1);
-		this.copyModelAngles(h0, h2);
-		this.copyModelAngles(h0, h3);
-		this.copyModelAngles(h0, h4);
+		copyModelAngles(h0, h1);
+		copyModelAngles(h0, h2);
+		copyModelAngles(h0, h3);
+		copyModelAngles(h0, h4);
 	}
 	
 	public void render(float angleX, float angleY, float par2)

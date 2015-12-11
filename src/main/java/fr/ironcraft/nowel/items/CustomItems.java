@@ -11,12 +11,12 @@ import fr.ironcraft.nowel.Nowel;
 
 public class CustomItems {
 
-	public static Item candyCane;
-    public static Item candyCaneSword;
-    public static Item iceSword;
-    public static Item record_nowel;
-    public static Item santaHat;
-	public static Item presentEmpty;
+	public Item candyCane;
+    public Item candyCaneSword;
+    public Item iceSword;
+    public Item record_nowel;
+    public Item santaHat;
+	public Item presentEmpty;
 	
     public CustomItems()
     {

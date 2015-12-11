@@ -41,7 +41,6 @@ public class ModelSombrero extends ModelBase
 	}
 
 	private ModelRenderer createModelRenderer(int offsetX, int offsetY, float posX, float posY, float posZ, int sizeX, int sizeY, int sizeZ) {
-		float f = -1F;
 		ModelRenderer part = new ModelRenderer(this, offsetX, offsetY);
 		part.addBox(posX, posY, posZ, sizeX, sizeY, sizeZ);
 		part.setRotationPoint(0F, 0F, 0F);

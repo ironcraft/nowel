@@ -37,6 +37,7 @@ public class TileEntityPresent extends TileEntity
 		super.writeToNBT(compound);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Packet getDescriptionPacket()
 	{
 		NBTTagCompound nbttagcompound = new NBTTagCompound();

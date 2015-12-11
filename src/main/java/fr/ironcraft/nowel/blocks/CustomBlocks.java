@@ -41,12 +41,17 @@ public class CustomBlocks
 	{
 		this.registerBlock(block, name, ItemBlock.class);
 	}
+	
+	private void registerBlock(Block block, String name, Class<? extends ItemBlock> clazz, Object...args)
+	{
+		GameRegistry.registerBlock(block, clazz, name, args);
+		if (Side.CLIENT != null)
+			Nowel.items.registerItemRender(Item.getItemFromBlock(block), 0, name);
+	}
 
 	private void registerBlock(Block block, String name, Class<? extends ItemBlock> clazz)
 	{
-		GameRegistry.registerBlock(block, clazz, name);
-		if (Side.CLIENT != null)
-			Nowel.items.registerItemRender(Item.getItemFromBlock(block), 0, name);
+		registerBlock(block, name, clazz, new Object[] {});
 	}
 
 	@SuppressWarnings("unused")
@@ -57,7 +62,12 @@ public class CustomBlocks
 
 	private void registerTileEntityBlock(Block block, String name, Class<? extends TileEntity> tile, Class<? extends ItemBlock> clazz)
 	{
-		this.registerBlock(block, name, clazz);
+		this.registerTileEntityBlock(block, name, tile, clazz, new Object[] {});
+	}
+	
+	private void registerTileEntityBlock(Block block, String name, Class<? extends TileEntity> tile, Class<? extends ItemBlock> clazz, Object...args)
+	{
+		this.registerBlock(block, name, clazz, args);
 		GameRegistry.registerTileEntity(tile, Nowel.MODID + ":" + name + "_tileentity");
 	}
 }

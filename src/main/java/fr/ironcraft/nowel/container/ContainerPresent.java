@@ -1,5 +1,6 @@
 package fr.ironcraft.nowel.container;
 
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -8,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import fr.ironcraft.nowel.container.slot.SlotPresent;
 import fr.ironcraft.nowel.inventory.InventoryPresent;
+
 
 public class ContainerPresent extends Container
 {

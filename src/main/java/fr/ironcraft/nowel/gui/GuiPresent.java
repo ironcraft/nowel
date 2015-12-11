@@ -64,13 +64,12 @@ public class GuiPresent extends GuiContainer
 	{
 		super.keyTyped(typedChar, keyCode);
 	}
-	
+
 	@Override
 	protected void handleMouseClick(Slot slotIn, int slotId, int clickedButton, int clickType)
 	{
 		super.handleMouseClick(slotIn, slotId, clickedButton, clickType);
 	}
-
 
 	/**
 	 * Draws the screen and all the components in it. Args : mouseX, mouseY,
@@ -80,14 +79,14 @@ public class GuiPresent extends GuiContainer
 	{
 		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
-	
-    /**
-     * Called when the mouse is clicked. Args : mouseX, mouseY, clickedButton
-     */
-    protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException
-    {
-        super.mouseClicked(mouseX, mouseY, mouseButton);
-    }
+
+	/**
+	 * Called when the mouse is clicked. Args : mouseX, mouseY, clickedButton
+	 */
+	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException
+	{
+		super.mouseClicked(mouseX, mouseY, mouseButton);
+	}
 
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialRenderTick, int x, int y)

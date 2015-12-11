@@ -1,5 +1,6 @@
 package fr.ironcraft.nowel.gui;
 
+
 import static fr.ironcraft.nowel.utils.View.rayTrace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -12,6 +13,7 @@ import fr.ironcraft.nowel.blocks.tileentities.TileEntityPresent;
 import fr.ironcraft.nowel.container.ContainerPresent;
 import fr.ironcraft.nowel.utils.EnumGuis;
 
+
 public class GuiNowelHandler implements IGuiHandler
 {
 	@Override
@@ -20,13 +22,13 @@ public class GuiNowelHandler implements IGuiHandler
 		if (id == EnumGuis.PRESENT.getId())
 		{
 			MovingObjectPosition mop = rayTrace(player, 4);
-			
+
 			if (mop != null)
 			{
 				if (mop.typeOfHit == MovingObjectType.BLOCK)
 				{
 					BlockPos pos = mop.getBlockPos();
-					
+
 					TileEntity tileEntity = world.getTileEntity(pos);
 
 					if (tileEntity != null && tileEntity instanceof TileEntityPresent)
@@ -38,23 +40,23 @@ public class GuiNowelHandler implements IGuiHandler
 				}
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		if (id == EnumGuis.PRESENT.getId())
 		{
 			MovingObjectPosition mop = rayTrace(player, 4);
-			
+
 			if (mop != null)
 			{
 				if (mop.typeOfHit == MovingObjectType.BLOCK)
 				{
 					BlockPos pos = mop.getBlockPos();
-					
+
 					TileEntity tileEntity = world.getTileEntity(pos);
 
 					if (tileEntity != null && tileEntity instanceof TileEntityPresent)
@@ -66,8 +68,7 @@ public class GuiNowelHandler implements IGuiHandler
 				}
 			}
 		}
-		
+
 		return null;
 	}
 }
-

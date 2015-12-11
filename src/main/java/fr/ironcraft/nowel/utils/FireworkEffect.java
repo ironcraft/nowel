@@ -32,22 +32,22 @@ public final class FireworkEffect
 		 * A small ball effect.
 		 */
 		BALL,
-		
+
 		/**
 		 * A large ball effect.
 		 */
 		BALL_LARGE,
-		
+
 		/**
 		 * A star-shaped effect.
 		 */
 		STAR,
-		
+
 		/**
 		 * A burst effect.
 		 */
 		BURST,
-		
+
 		/**
 		 * A creeper-face effect.
 		 */

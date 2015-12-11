@@ -16,17 +16,18 @@ import net.minecraft.util.IChatComponent;
 import net.minecraftforge.common.util.Constants;
 import fr.ironcraft.nowel.Nowel;
 
+
 public class InventoryPresent implements IInventory
 {
 	public ItemStack[] inventoryContent;
 	public int size;
-	
+
 	public InventoryPresent(int size)
 	{
 		this.size = size;
 		inventoryContent = new ItemStack[size];
 	}
-	
+
 	public void readFromNBT(NBTTagCompound comp)
 	{
 		NBTTagList nbtlist = comp.getTagList("Inventory", Constants.NBT.TAG_COMPOUND);
@@ -95,7 +96,7 @@ public class InventoryPresent implements IInventory
 		{
 			inventoryContent[index] = null;
 		}
-		
+
 		return stack;
 	}
 

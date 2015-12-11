@@ -1,5 +1,6 @@
 package fr.ironcraft.nowel;
 
+
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -20,26 +21,26 @@ import fr.ironcraft.nowel.items.CustomItems;
 import fr.ironcraft.nowel.proxy.CommonProxy;
 import fr.ironcraft.nowel.worldgen.CustomWorldGenerator;
 
+
 @Mod(modid = Nowel.MODID, version = Nowel.VERSION)
 public class Nowel
 {
 	@Instance(Nowel.MODID)
-	public static Nowel		instance;
+	public static Nowel instance;
 
-	public static final String	MODID	= "ic_nowel";
-	public static final String	VERSION	= "1.0";
-	public static final String	PATH	= "fr.ironcraft.nowel";
+	public static final String MODID = "ic_nowel";
+	public static final String VERSION = "1.0";
+	public static final String PATH = "fr.ironcraft.nowel";
 
 	@SidedProxy(clientSide = PATH + ".proxy.ClientProxy", serverSide = PATH + ".proxy.CommonProxy")
-	public static CommonProxy	proxy;
-	
+	public static CommonProxy proxy;
+
 	public static CustomItems items;
 	public static CustomBlocks blocks;
-	
+
 	public static SimpleNetworkWrapper network;
 
-	public static final CreativeTabs TAB_NOWEL = new CreativeTabs("nowel")
-	{
+	public static final CreativeTabs TAB_NOWEL = new CreativeTabs("nowel") {
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem()
 		{
@@ -51,7 +52,7 @@ public class Nowel
 			return I18n.format("tab.nowel.name");
 		}
 	};
-	
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
@@ -61,15 +62,15 @@ public class Nowel
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-        items = new CustomItems();
-        blocks = new CustomBlocks();
-        
-        new CustomCrafting();
+		items = new CustomItems();
+		blocks = new CustomBlocks();
 
-        GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 0);
-        
+		new CustomCrafting();
+
+		GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 0);
+
 		proxy.init();
-		
+
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiNowelHandler());
 	}
 }

@@ -1,10 +1,12 @@
 package fr.ironcraft.nowel.entity.model.stuff;
 
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.util.ResourceLocation;
 import fr.ironcraft.nowel.Nowel;
+
 
 public class ModelSombrero extends ModelBase
 {
@@ -20,7 +22,7 @@ public class ModelSombrero extends ModelBase
 	public ModelRenderer h4;
 
 	ResourceLocation texture;
-	
+
 	public ModelSombrero()
 	{
 		textureWidth = 256;
@@ -40,14 +42,15 @@ public class ModelSombrero extends ModelBase
 
 	}
 
-	private ModelRenderer createModelRenderer(int offsetX, int offsetY, float posX, float posY, float posZ, int sizeX, int sizeY, int sizeZ) {
+	private ModelRenderer createModelRenderer(int offsetX, int offsetY, float posX, float posY, float posZ, int sizeX, int sizeY, int sizeZ)
+	{
 		ModelRenderer part = new ModelRenderer(this, offsetX, offsetY);
 		part.addBox(posX, posY, posZ, sizeX, sizeY, sizeZ);
 		part.setRotationPoint(0F, 0F, 0F);
 		part.setTextureSize(textureWidth, textureHeight);
 		return (part);
 	}
-	
+
 	public void setRotationAngles(float angleX, float angleY)
 	{
 		base.rotateAngleX = angleX;
@@ -62,7 +65,7 @@ public class ModelSombrero extends ModelBase
 		copyModelAngles(base, h3);
 		copyModelAngles(base, h4);
 	}
-	
+
 	public void render(float angleX, float angleY, float par2)
 	{
 		setRotationAngles(angleX, angleY);

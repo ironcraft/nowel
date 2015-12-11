@@ -28,12 +28,11 @@ import fr.ironcraft.nowel.blocks.tileentities.TileEntityPresent;
 
 public class BlockPresent extends BlockContainer
 {
-    public static final PropertyEnum<EnumDyeColor> COLOR = PropertyEnum.<EnumDyeColor>create("color", EnumDyeColor.class);
+	public static final PropertyEnum<EnumDyeColor> COLOR = PropertyEnum.<EnumDyeColor> create("color", EnumDyeColor.class);
 
 	public BlockPresent()
 	{
-		super(Material.ice);
-		setCreativeTab(CreativeTabs.tabDecorations);
+		super(Material.cloth);
 	}
 
 	@Override
@@ -41,91 +40,94 @@ public class BlockPresent extends BlockContainer
 	{
 		return new TileEntityPresent();
 	}
-	
-    /**
-     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
-     */
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list)
-    {
-        for (EnumDyeColor enumdyecolor : EnumDyeColor.values())
-        {
-            list.add(new ItemStack(itemIn, 1, enumdyecolor.getMetadata()));
-        }
-    }
-	
-    /**
-     * Gets the metadata of the item this Block can drop. This method is called when the block gets destroyed. It
-     * returns the metadata of the dropped item based on the old metadata of the block.
-     */
-    public int damageDropped(IBlockState state)
-    {
-        return ((EnumDyeColor)state.getValue(COLOR)).getMetadata();
-    }
 
-    /**
-     * Get the MapColor for this Block and the given BlockState
-     */
-    public MapColor getMapColor(IBlockState state)
-    {
-        return ((EnumDyeColor)state.getValue(COLOR)).getMapColor();
-    }
-    
-    /**
-     * Convert the given metadata into a BlockState for this Block
-     */
-    public IBlockState getStateFromMeta(int meta)
-    {
-        return this.getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
-    }
+	/**
+	 * returns a list of blocks with the same ID, but different meta (eg: wood
+	 * returns 4 blocks)
+	 */
+	@SideOnly(Side.CLIENT)
+	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list)
+	{
+		for (EnumDyeColor enumdyecolor : EnumDyeColor.values())
+		{
+			list.add(new ItemStack(itemIn, 1, enumdyecolor.getMetadata()));
+		}
+	}
 
-    /**
-     * Convert the BlockState into the correct metadata value
-     */
-    public int getMetaFromState(IBlockState state)
-    {
-        return ((EnumDyeColor)state.getValue(COLOR)).getMetadata();
-    }
+	/**
+	 * Gets the metadata of the item this Block can drop. This method is called
+	 * when the block gets destroyed. It
+	 * returns the metadata of the dropped item based on the old metadata of the
+	 * block.
+	 */
+	public int damageDropped(IBlockState state)
+	{
+		return state.getValue(COLOR).getMetadata();
+	}
 
-    protected BlockState createBlockState()
-    {
-        return new BlockState(this, new IProperty[] {COLOR});
-    }
-    
-    @Override
-    public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
-    	System.out.println("meta = " + meta);
-    	return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
-    }
-    
+	/**
+	 * Get the MapColor for this Block and the given BlockState
+	 */
+	public MapColor getMapColor(IBlockState state)
+	{
+		return state.getValue(COLOR).getMapColor();
+	}
+
+	/**
+	 * Convert the given metadata into a BlockState for this Block
+	 */
+	public IBlockState getStateFromMeta(int meta)
+	{
+		return this.getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
+	}
+
+	/**
+	 * Convert the BlockState into the correct metadata value
+	 */
+	public int getMetaFromState(IBlockState state)
+	{
+		return state.getValue(COLOR).getMetadata();
+	}
+
+	protected BlockState createBlockState()
+	{
+		return new BlockState(this, new IProperty[] {COLOR});
+	}
+
+	@Override
+	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+	{
+		System.out.println("meta = " + meta);
+		return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
+	}
+
 	@Override
 	public boolean isOpaqueCube()
 	{
 		return false;
 	}
-	
+
 	@Override
 	public int quantityDropped(IBlockState state, int fortune, Random random)
 	{
 		return 0;
 	}
-	
-    public boolean isFullCube()
-    {
-        return false;
-    }
-    
-    @Override
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
-    {
+
+	public boolean isFullCube()
+	{
+		return false;
+	}
+
+	@Override
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
+	{
 		if (worldIn.isRemote)
 		{
 			return;
 		}
 
 		System.out.println("broke");
-		
+
 		TileEntity tileEntity = worldIn.getTileEntity(pos);
 
 		if (tileEntity != null && tileEntity instanceof TileEntityPresent)
@@ -133,8 +135,8 @@ public class BlockPresent extends BlockContainer
 			TileEntityPresent present = (TileEntityPresent) tileEntity;
 			present.onPlayerDestroyed(pos, state);
 		}
-    }
-    
+	}
+
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
 	{

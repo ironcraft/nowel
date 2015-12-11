@@ -1,9 +1,9 @@
 package fr.ironcraft.nowel.utils;
 
+
 import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
-
 
 
 /**

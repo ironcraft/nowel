@@ -1,7 +1,9 @@
 package fr.ironcraft.nowel.container.slot;
 
+
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+
 
 public class SlotPresent extends Slot
 {
@@ -9,6 +11,5 @@ public class SlotPresent extends Slot
 	{
 		super(inventoryIn, index, xPosition, yPosition);
 	}
-	
-	
+
 }

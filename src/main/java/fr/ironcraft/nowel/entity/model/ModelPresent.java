@@ -132,12 +132,12 @@ public class ModelPresent extends ModelBase
 	{
 		render(par7);
 	}
-	
+
 	public void render()
 	{
 		render(0.0625f);
 	}
-	
+
 	public void render(float par7)
 	{
 		BaseCadeau.rotateAngleX = 0F;

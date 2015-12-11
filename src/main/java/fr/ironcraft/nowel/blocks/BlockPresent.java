@@ -1,6 +1,9 @@
 package fr.ironcraft.nowel.blocks;
 
 
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -9,12 +12,17 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import fr.ironcraft.nowel.blocks.tileentities.TileEntityPresent;
 
 
@@ -33,6 +41,18 @@ public class BlockPresent extends BlockContainer
 	{
 		return new TileEntityPresent();
 	}
+	
+    /**
+     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
+     */
+    @SideOnly(Side.CLIENT)
+    public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list)
+    {
+        for (EnumDyeColor enumdyecolor : EnumDyeColor.values())
+        {
+            list.add(new ItemStack(itemIn, 1, enumdyecolor.getMetadata()));
+        }
+    }
 	
     /**
      * Gets the metadata of the item this Block can drop. This method is called when the block gets destroyed. It
@@ -72,10 +92,23 @@ public class BlockPresent extends BlockContainer
         return new BlockState(this, new IProperty[] {COLOR});
     }
     
+    @Override
+    public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    {
+    	System.out.println("meta = " + meta);
+    	return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
+    }
+    
 	@Override
 	public boolean isOpaqueCube()
 	{
 		return false;
+	}
+	
+	@Override
+	public int quantityDropped(IBlockState state, int fortune, Random random)
+	{
+		return 0;
 	}
 	
     public boolean isFullCube()
@@ -84,13 +117,15 @@ public class BlockPresent extends BlockContainer
     }
     
     @Override
-    public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state)
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
     {
 		if (worldIn.isRemote)
 		{
 			return;
 		}
 
+		System.out.println("broke");
+		
 		TileEntity tileEntity = worldIn.getTileEntity(pos);
 
 		if (tileEntity != null && tileEntity instanceof TileEntityPresent)

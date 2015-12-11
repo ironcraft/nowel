@@ -1,18 +1,27 @@
 package fr.ironcraft.nowel.utils;
 
+
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 
+
 public class View
 {
+	/**
+	 * Calculates the object that entity is looking at.
+	 * 
+	 * @param entity The entity in question.
+	 * @param blockReachDistance Max view distance.
+	 * @return The objet the entity looks at.
+	 */
 	public static MovingObjectPosition rayTrace(Entity entity, double blockReachDistance)
-    {
-        Vec3 vec3 = getPositionEyes(entity);
-        Vec3 vec31 = entity.getLook(1.0f);
-        Vec3 vec32 = vec3.addVector(vec31.xCoord * blockReachDistance, vec31.yCoord * blockReachDistance, vec31.zCoord * blockReachDistance);
-        return entity.worldObj.rayTraceBlocks(vec3, vec32, false, false, true);
-    }
+	{
+		Vec3 vec3 = getPositionEyes(entity);
+		Vec3 vec31 = entity.getLook(1.0f);
+		Vec3 vec32 = vec3.addVector(vec31.xCoord * blockReachDistance, vec31.yCoord * blockReachDistance, vec31.zCoord * blockReachDistance);
+		return entity.worldObj.rayTraceBlocks(vec3, vec32, false, false, true);
+	}
 
 	public static Vec3 getPositionEyes(Entity entity)
 	{

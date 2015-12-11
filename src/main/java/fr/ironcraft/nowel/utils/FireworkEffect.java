@@ -1,7 +1,6 @@
 package fr.ironcraft.nowel.utils;
 
 
-
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -18,6 +17,7 @@ import com.google.common.collect.ImmutableMap;
 
 /**
  * Represents a single firework effect.
+ * 
  * @author Bukkit Team & Wytrem.
  */
 public final class FireworkEffect
@@ -32,18 +32,22 @@ public final class FireworkEffect
 		 * A small ball effect.
 		 */
 		BALL,
+		
 		/**
 		 * A large ball effect.
 		 */
 		BALL_LARGE,
+		
 		/**
 		 * A star-shaped effect.
 		 */
 		STAR,
+		
 		/**
 		 * A burst effect.
 		 */
 		BURST,
+		
 		/**
 		 * A creeper-face effect.
 		 */
@@ -461,29 +465,29 @@ public final class FireworkEffect
 			explosion.setIntArray("Colors", this.getIntColors());
 			explosion.setIntArray("FadeColors", this.getIntFadeColors());
 		}
-		
+
 		return explosion;
 	}
-	
+
 	public static NBTTagCompound makeReadableNBT(NBTTagCompound... effects)
 	{
 		List<NBTTagCompound> list = Arrays.asList(effects);
-		
+
 		NBTTagCompound fireworks = new NBTTagCompound();
-		
+
 		fireworks.setByte("Flight", (byte) 0);
-		
+
 		NBTTagList nbtList = new NBTTagList();
-		
+
 		Iterator<NBTTagCompound> iterator = list.iterator();
-		
+
 		while (iterator.hasNext())
 		{
 			nbtList.appendTag(iterator.next());
 		}
-		
+
 		fireworks.setTag("Explosions", nbtList);
-		
+
 		return fireworks;
 	}
 

@@ -21,24 +21,18 @@ public class GuiNowelHandler implements IGuiHandler
 		{
 			MovingObjectPosition mop = rayTrace(player, 4);
 			
-			System.out.println("mop = " + mop);
-			
 			if (mop != null)
 			{
-				System.out.println("mop.type = " + mop.typeOfHit);
-				
 				if (mop.typeOfHit == MovingObjectType.BLOCK)
 				{
 					BlockPos pos = mop.getBlockPos();
-					
-					System.out.println("pos = " + pos);
-
 					
 					TileEntity tileEntity = world.getTileEntity(pos);
 
 					if (tileEntity != null && tileEntity instanceof TileEntityPresent)
 					{
 						TileEntityPresent present = (TileEntityPresent) tileEntity;
+						// We could use Java 8's Suppliers instead.
 						return new ContainerPresent(present.getInventoryPresent(), player.inventory, player);
 					}
 				}
@@ -47,7 +41,7 @@ public class GuiNowelHandler implements IGuiHandler
 		
 		return null;
 	}
-
+	
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
@@ -66,6 +60,7 @@ public class GuiNowelHandler implements IGuiHandler
 					if (tileEntity != null && tileEntity instanceof TileEntityPresent)
 					{
 						TileEntityPresent present = (TileEntityPresent) tileEntity;
+						// We could use Java 8's Suppliers instead.
 						return new GuiPresent(present.getInventoryPresent(), player.inventory, player);
 					}
 				}

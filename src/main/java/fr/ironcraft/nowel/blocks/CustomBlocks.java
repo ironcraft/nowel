@@ -57,7 +57,7 @@ public class CustomBlocks
 
 	private void registerTileEntityBlock(Block block, String name, Class<? extends TileEntity> tile, Class<? extends ItemBlock> clazz)
 	{
-		this.registerBlock(block, name);
+		this.registerBlock(block, name, clazz);
 		GameRegistry.registerTileEntity(tile, Nowel.MODID + ":" + name + "_tileentity");
 	}
 }

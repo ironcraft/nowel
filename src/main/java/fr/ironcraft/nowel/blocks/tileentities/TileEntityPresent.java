@@ -29,7 +29,7 @@ public class TileEntityPresent extends TileEntity
 	 * prevent other players to get present by editing.
 	 */
 	private UUID lastUser;
-
+	
 	public TileEntityPresent()
 	{
 		super();
@@ -104,8 +104,6 @@ public class TileEntityPresent extends TileEntity
 
 	public boolean onPlayerClicked(EntityPlayer player, BlockPos pos, IBlockState state, EnumFacing side)
 	{
-		System.out.println("click, last = " + lastUser);
-		
 		if (lastUser == null || lastUser.equals(player.getPersistentID()))
 		{
 			EnumGuis.PRESENT.open(player, getWorld(), pos);
@@ -122,7 +120,5 @@ public class TileEntityPresent extends TileEntity
 
 		getWorld().makeFireworks(pos.getX(), pos.getY(), pos.getZ(), 0.0f, 0.0f, 0.0f, FireworkEffect.makeReadableNBT(effect.toExplosionTag()));
 		InventoryHelper.dropInventoryItems(getWorld(), pos, inventoryPresent);
-		
-		getWorld().setBlockToAir(pos);
 	}
 }

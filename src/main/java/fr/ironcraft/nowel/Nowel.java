@@ -72,5 +72,4 @@ public class Nowel
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiNowelHandler());
 	}
-
 }

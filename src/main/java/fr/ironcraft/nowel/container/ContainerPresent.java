@@ -1,34 +1,26 @@
 package fr.ironcraft.nowel.container;
 
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import fr.ironcraft.nowel.Nowel;
-import fr.ironcraft.nowel.container.slot.SlotDye;
 import fr.ironcraft.nowel.container.slot.SlotPresent;
 import fr.ironcraft.nowel.inventory.InventoryPresent;
 
-public class ContainerPresentCreation extends Container
+public class ContainerPresent extends Container
 {
 	private InventoryPresent presentTileEntity;
-	private IInventory inventoryDye;
 
-	public ContainerPresentCreation(InventoryPresent presentInventory, InventoryPlayer playerInventory, EntityPlayer player)
+	public ContainerPresent(InventoryPresent presentInventory, InventoryPlayer playerInventory, EntityPlayer player)
 	{
-		inventoryDye = new InventoryBasic("DyeInventory", false, 1);
 		presentTileEntity = presentInventory;
 		presentTileEntity.openInventory(player);
 
-		this.addSlotToContainer(new SlotDye(inventoryDye, 0, 70, 20));
-		this.addSlotToContainer(new SlotPresent(presentInventory, 0, 90, 20));
+		this.addSlotToContainer(new SlotPresent(presentInventory, 0, 80, 18));
 
-		byte b0 = 71;
+		byte b0 = 51;
 
 		for (int i = 0; i < 3; ++i)
 		{
@@ -100,26 +92,5 @@ public class ContainerPresentCreation extends Container
 			}
 		}
 		return itemstack;
-	}
-
-	public void onValidate(String receiverName, EntityPlayer player)
-	{
-		if (canCreatePresent())
-		{
-			System.out.println("id = " + getSlotFromInventory(inventoryDye, 0).getStack().getItemDamage());
-			ItemStack filledUpPresent = new ItemStack(Nowel.blocks.present, 1, getSlotFromInventory(inventoryDye, 0).getStack().getItemDamage());
-			player.inventory.decrStackSize(player.inventory.currentItem, 1);
-			// TODO : @wytrem make it localized
-			filledUpPresent.setStackDisplayName("Cadeau pour " + receiverName);
-			writeToNBT(filledUpPresent);
-			player.inventory.addItemStackToInventory(filledUpPresent);
-		}
-		
-		player.closeScreen();
-	}
-
-	public boolean canCreatePresent()
-	{
-		return getSlotFromInventory(presentTileEntity, 0).getHasStack() && getSlotFromInventory(inventoryDye, 0).getHasStack();
 	}
 }

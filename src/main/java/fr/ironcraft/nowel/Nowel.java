@@ -56,7 +56,6 @@ public class Nowel
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("NowelChannel");
-		network.registerMessage(PresentCreationMessage.Handler.class, PresentCreationMessage.class, 0, Side.SERVER);
 	}
 
 	@EventHandler

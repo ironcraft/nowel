@@ -7,7 +7,7 @@ import fr.ironcraft.nowel.Nowel;
 
 public enum EnumGuis
 {
-	PRESENT_CREATION;
+	PRESENT;
 	
 	public int getId()
 	{

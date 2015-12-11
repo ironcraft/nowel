@@ -16,7 +16,6 @@ public class CustomItems {
     public Item iceSword;
     public Item record_nowel;
     public Item santaHat;
-	public Item presentEmpty;
 	
     public CustomItems()
     {
@@ -30,7 +29,6 @@ public class CustomItems {
         iceSword = new ItemSword(Item.ToolMaterial.STONE).setUnlocalizedName("ice_sword").setCreativeTab(Nowel.TAB_NOWEL);
 		record_nowel = new ItemCustomRecord("nowel").setUnlocalizedName("record.nowel").setCreativeTab(Nowel.TAB_NOWEL);
         santaHat = new SantaHat();
-		presentEmpty = new ItemPresentEmpty().setUnlocalizedName("empty_present").setCreativeTab(Nowel.TAB_NOWEL);
 
         this.register();
 	}
@@ -42,7 +40,6 @@ public class CustomItems {
 		this.registerItem(iceSword, "iceSword");
 		this.registerItem(record_nowel, "record_nowel");
 		this.registerItem(santaHat, "santaHat");
-		this.registerItem(presentEmpty, "empty_present");
 	}
 	
 	private void registerItem(Item item, String name)

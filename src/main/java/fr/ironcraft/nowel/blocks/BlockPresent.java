@@ -83,6 +83,23 @@ public class BlockPresent extends BlockContainer
         return false;
     }
     
+    @Override
+    public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state)
+    {
+		if (worldIn.isRemote)
+		{
+			return;
+		}
+
+		TileEntity tileEntity = worldIn.getTileEntity(pos);
+
+		if (tileEntity != null && tileEntity instanceof TileEntityPresent)
+		{
+			TileEntityPresent present = (TileEntityPresent) tileEntity;
+			present.onPlayerDestroyed(pos, state);
+		}
+    }
+    
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
 	{

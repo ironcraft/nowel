@@ -4,36 +4,30 @@ package fr.ironcraft.nowel.gui;
 import java.io.IOException;
 
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.util.ResourceLocation;
 
-import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import fr.ironcraft.nowel.Nowel;
-import fr.ironcraft.nowel.PresentCreationMessage;
-import fr.ironcraft.nowel.container.ContainerPresentCreation;
+import fr.ironcraft.nowel.container.ContainerPresent;
 import fr.ironcraft.nowel.inventory.InventoryPresent;
 
 
-public class GuiPresentCreation extends GuiContainer
+public class GuiPresent extends GuiContainer
 {
-	private static final ResourceLocation presentBackground = new ResourceLocation(Nowel.MODID + ":textures/gui/container/present.png");
+	private static final ResourceLocation presentBackground = new ResourceLocation(Nowel.MODID, "textures/gui/container/present.png");
 	private IInventory presentTileEntity;
 	@SuppressWarnings("unused")
-	private IInventory playerInventory;
-	private GuiTextField nameField;
-	private GuiButton send;
+	private InventoryPlayer playerInventory;
 
-	public GuiPresentCreation(InventoryPresent tile, InventoryPlayer inventory, EntityPlayer player)
+	public GuiPresent(InventoryPresent tile, InventoryPlayer inventory, EntityPlayer player)
 	{
-		super(new ContainerPresentCreation(tile, inventory, player));
+		super(new ContainerPresent(tile, inventory, player));
 		this.presentTileEntity = tile;
 		this.playerInventory = inventory;
 		this.allowUserInput = false;
@@ -44,16 +38,6 @@ public class GuiPresentCreation extends GuiContainer
 	public void initGui()
 	{
 		super.initGui();
-		Keyboard.enableRepeatEvents(true);
-		int i = (this.width - this.xSize) / 2;
-		int j = (this.height - this.ySize) / 2;
-		this.nameField = new GuiTextField(0, this.fontRendererObj, i + 7, j + 47, 78, 12);
-		this.nameField.setTextColor(-1);
-		this.nameField.setDisabledTextColour(-1);
-		this.nameField.setMaxStringLength(40);
-
-		this.buttonList.add(send = new GuiButton(0, i + 91, j + 43, 78, 20, "Valider"));
-		send.enabled = false;
 	}
 
 	/**
@@ -63,16 +47,11 @@ public class GuiPresentCreation extends GuiContainer
 	public void onGuiClosed()
 	{
 		super.onGuiClosed();
-		Keyboard.enableRepeatEvents(false);
 	}
 
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException
 	{
-		if (button.id == 0)
-		{
-			Nowel.network.sendToServer(new PresentCreationMessage(nameField.getText()));
-		}
 	}
 
 	/**
@@ -83,35 +62,15 @@ public class GuiPresentCreation extends GuiContainer
 	 */
 	protected void keyTyped(char typedChar, int keyCode) throws IOException
 	{
-		if (this.nameField.textboxKeyTyped(typedChar, keyCode))
-		{
-			updateButtonState();
-		}
-		else
-		{
-			super.keyTyped(typedChar, keyCode);
-		}
+		super.keyTyped(typedChar, keyCode);
 	}
 	
 	@Override
 	protected void handleMouseClick(Slot slotIn, int slotId, int clickedButton, int clickType)
 	{
 		super.handleMouseClick(slotIn, slotId, clickedButton, clickType);
-		
-		updateButtonState();
 	}
 
-	protected void updateButtonState()
-	{
-		if (!nameField.getText().isEmpty() && ((ContainerPresentCreation) inventorySlots).canCreatePresent())
-		{
-			send.enabled = true;
-		}
-		else
-		{
-			send.enabled = false;
-		}
-	}
 
 	/**
 	 * Draws the screen and all the components in it. Args : mouseX, mouseY,
@@ -120,9 +79,6 @@ public class GuiPresentCreation extends GuiContainer
 	public void drawScreen(int mouseX, int mouseY, float partialTicks)
 	{
 		super.drawScreen(mouseX, mouseY, partialTicks);
-		GlStateManager.disableLighting();
-		GlStateManager.disableBlend();
-		this.nameField.drawTextBox();
 	}
 	
     /**
@@ -131,7 +87,6 @@ public class GuiPresentCreation extends GuiContainer
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException
     {
         super.mouseClicked(mouseX, mouseY, mouseButton);
-        this.nameField.mouseClicked(mouseX, mouseY, mouseButton);
     }
 
 	@Override

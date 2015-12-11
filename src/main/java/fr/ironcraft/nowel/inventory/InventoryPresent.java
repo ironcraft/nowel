@@ -21,22 +21,12 @@ public class InventoryPresent implements IInventory
 	public ItemStack[] inventoryContent;
 	public int size;
 	
-	public InventoryPresent(ItemStack container)
-	{
-		this(container, 1);
-	}
-
-	public InventoryPresent(ItemStack container, int size)
+	public InventoryPresent(int size)
 	{
 		this.size = size;
 		inventoryContent = new ItemStack[size];
-		if (!container.hasTagCompound())
-		{
-			container.setTagCompound(new NBTTagCompound());
-		}
-		readFromNBT(container.getTagCompound());
 	}
-
+	
 	public void readFromNBT(NBTTagCompound comp)
 	{
 		NBTTagList nbtlist = comp.getTagList("Inventory", Constants.NBT.TAG_COMPOUND);

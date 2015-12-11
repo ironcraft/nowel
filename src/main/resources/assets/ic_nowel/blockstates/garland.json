@@ -1,9 +1,9 @@
 {
   "variants": {
-    "facing=north": { "model": "garland" },
-    "facing=east":  { "model": "garland", "y": 90 },
-    "facing=south": { "model": "garland", "y": 180 },
-    "facing=west":  { "model": "garland", "y": 270 },
-    "inventory": { "model": "garland" }
+    "facing=north": { "model": "ic_nowel:garland" },
+    "facing=east":  { "model": "ic_nowel:garland", "y": 90 },
+    "facing=south": { "model": "ic_nowel:garland", "y": 180 },
+    "facing=west":  { "model": "ic_nowel:garland", "y": 270 },
+    "inventory": { "model": "ic_nowel:garland" }
   }
 }

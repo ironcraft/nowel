@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "blocks/garland",
-    "texture": "blocks/garland"
+    "particle": "ic_nowel:blocks/garland",
+    "texture": "ic_nowel:blocks/garland"
   },
   "elements": [
     {   "from": [ 0, 0, 15.2 ],

@@ -9,14 +9,16 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import fr.ironcraft.nowel.Nowel;
 import fr.ironcraft.nowel.blocks.tileentities.TileEntityPresent;
+import fr.ironcraft.nowel.blocks.tileentities.TileEntitySnowGlobe;
 import fr.ironcraft.nowel.items.ItemBlockPresent;
+import fr.ironcraft.nowel.items.ItemBlockSnowGlobe;
 
 
 public class CustomBlocks
 {
-
 	public Block present;
 	public Block garland;
+	public Block snowGlobe;
 
 	public CustomBlocks()
 	{
@@ -27,7 +29,8 @@ public class CustomBlocks
 	{
 		present = new BlockPresent().setUnlocalizedName("present").setCreativeTab(Nowel.TAB_NOWEL);
 		garland = new DecoBlock().setUnlocalizedName("garland").setCreativeTab(Nowel.TAB_NOWEL);
-
+		snowGlobe = new BlockSnowGlobe().setUnlocalizedName("snowGlobe").setCreativeTab(Nowel.TAB_NOWEL);
+		
 		this.register();
 	}
 
@@ -35,6 +38,7 @@ public class CustomBlocks
 	{
 		this.registerTileEntityBlock(present, "present", TileEntityPresent.class, ItemBlockPresent.class);
 		this.registerBlock(garland, "garland");
+		this.registerTileEntityBlock(snowGlobe, "snow_globe", TileEntitySnowGlobe.class, ItemBlockSnowGlobe.class);
 	}
 
 	private void registerBlock(Block block, String name)

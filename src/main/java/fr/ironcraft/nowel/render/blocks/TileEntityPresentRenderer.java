@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
 import fr.ironcraft.nowel.Nowel;
 import fr.ironcraft.nowel.blocks.tileentities.TileEntityPresent;
-import fr.ironcraft.nowel.entity.model.ModelPresent;
+import fr.ironcraft.nowel.models.ModelPresent;
 
 
 public class TileEntityPresentRenderer extends TileEntitySpecialRenderer<TileEntityPresent>

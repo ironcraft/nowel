@@ -8,8 +8,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import org.lwjgl.opengl.GL11;
 
-import fr.ironcraft.nowel.entity.model.stuff.ModelSantaHat;
 import fr.ironcraft.nowel.items.SantaHat;
+import fr.ironcraft.nowel.models.stuff.ModelSantaHat;
 
 
 public class EventHandler

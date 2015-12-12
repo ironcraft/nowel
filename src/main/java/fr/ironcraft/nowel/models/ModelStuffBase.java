@@ -1,4 +1,4 @@
-package fr.ironcraft.nowel.entity.model;
+package fr.ironcraft.nowel.models;
 
 
 public abstract class ModelStuffBase

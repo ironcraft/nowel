@@ -1,4 +1,4 @@
-package fr.ironcraft.nowel.entity.model.stuff;
+package fr.ironcraft.nowel.models.stuff;
 
 
 import net.minecraft.client.Minecraft;

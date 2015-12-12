@@ -1,4 +1,4 @@
-package fr.ironcraft.nowel.entity.model.stuff;
+package fr.ironcraft.nowel.models.stuff;
 
 
 import net.minecraft.client.Minecraft;
@@ -10,7 +10,6 @@ import fr.ironcraft.nowel.Nowel;
 
 public class ModelSantaHat extends ModelBase
 {
-
 	public ModelRenderer h0;
 	public ModelRenderer h1;
 	public ModelRenderer h2;
@@ -31,7 +30,6 @@ public class ModelSantaHat extends ModelBase
 		h2 = createModelRenderer(0, 16, -3F, -11F, -3F, 6, 2, 6);
 		h3 = createModelRenderer(0, 16, -2F, -12F, -2F, 4, 1, 4);
 		h4 = createModelRenderer(0, 16, -1F, -13F, -1F, 2, 1, 2);
-
 	}
 
 	private ModelRenderer createModelRenderer(int offsetX, int offsetY, float posX, float posY, float posZ, int sizeX, int sizeY, int sizeZ)
